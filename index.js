@@ -6,7 +6,7 @@ const fs = require('fs');
 const questions = ['Enter your Github username: ', 'Enter your email address: ', 'What is the project title?', 'Describe the project: ', 'Describe how to install the project: ', 'Describe how to use the project: ', 'Describe how to contribute to the project: ', 'Describe how to test the project: ', 'Choose a license: '];
 
 // TODO: Create a function to write README file
-const filename = "README.md"
+const filename = "yourREADME.md"
 function writeToFile(filename, response) {
     switch (response.license) {
         case 'MIT':
