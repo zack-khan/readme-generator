@@ -10,6 +10,12 @@ const filename = "README.md"
 function writeToFile(filename, response) {
     fs.writeFile(filename,
 `# ${response.title}
+## Table of Contents
+1. [Description](#Description)
+2. [Installation](#Installation)
+3. [Use](#How to Use)
+4. [Contribute](#How to Contribute)
+5. [Test](#How to Test)
 ## Description
 ${response.description}
 ## Installation
