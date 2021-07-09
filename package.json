@@ -1,23 +1,23 @@
 {
   "name": "readme_generator",
   "version": "1.0.0",
-  "description": "Generates a readme with some cmd line inputs",
+  "description": "Generates a README file given some command line inputs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zachary Khan",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^6.5.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zack-khan/readme-generator.git"
   },
-  "author": "Zachary Khan",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/zack-khan/readme-generator/issues"
   },
-  "homepage": "https://github.com/zack-khan/readme-generator#readme",
-  "dependencies": {
-    "fs": "0.0.1-security",
-    "inquirer": "^8.1.1"
-  }
+  "homepage": "https://github.com/zack-khan/readme-generator#readme"
 }

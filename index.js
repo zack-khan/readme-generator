@@ -1,64 +1,87 @@
+// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-inquirer
+// TODO: Create an array of questions for user input
+const questions = ['Enter your Github username: ', 'Enter your email address: ', 'What is the project title?', 'Describe the project: ', 'Describe how to install the project: ', 'Describe how to use the project: ', 'Describe how to contribute to the project: ', 'Describe how to test the project: ', 'Choose a license: '];
+
+// TODO: Create a function to write README file
+const filename = "README.md"
+function writeToFile(filename, response) {
+    fs.writeFile(filename,
+`# ${response.title}
+## Description
+${response.description}
+## Installation
+${response.installation}
+## How to Use
+${response.use}
+## How to Contribute
+${response.contribute}
+## How to Test
+${response.test}
+### License
+${response.license}`, (err) =>
+        err ? console.error(err) : console.log('Page updated!')
+    )
+}
+
+// TODO: Create a function to initialize app
+function init() {
+    inquirer
     .prompt([
         {
             type: 'input',
-            message: 'What is the project title?',
+            message: questions[0],
+            name: 'username',
+        },
+        {
+            type: 'input',
+            message: questions[1],
+            name: 'email',
+        },
+        {
+            type: 'input',
+            message: questions[2],
             name: 'title',
         },
         {
             type: 'input',
-            message: 'What is your location?',
-            name: 'location',
+            message: questions[3],
+            name: 'description',
         },
         {
             type: 'input',
-            message: 'Tell us about yourself:',
-            name: 'bio',
+            message: questions[4],
+            name: 'installation',
         },
         {
             type: 'input',
-            message: 'What is your LinkedIn url?',
-            name: 'linkedin',
+            message: questions[5],
+            name: 'use',
         },
         {
             type: 'input',
-            message: 'at is your Github url?',
-            name: 'github',
+            message: questions[6],
+            name: 'contribute',
+        },
+        {
+            type: 'input',
+            message: questions[7],
+            name: 'test',
+        },
+        {
+            type: 'select',
+            message: questions[8],
+            name: 'license',
         },
 
     ])
+    
     .then((response) =>
-        fs.writeFile('index.html', `
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Portfolio</title>
-</head>
-
-<body>
-    <h1>${response.name}</h1>
-    <h2>${response.location}</h2>
-    <p>${response.bio}</p>
-    <footer>
-        <ul>
-            <li>
-                <a href="https://${response.linkedin}" target="_blank">LinkedIn</a>
-            </li>
-            <li>
-                <a href="https://${response.github}" target="_blank">Github</a>
-            </li>
-        </ul>
-    </footer>
-</body>
-</html>`, (err) =>
-            err ? console.error(err) : console.log('Page updated!')
-        )
+        writeToFile(filename, response)
 );
+}
+
+// Function call to initialize app
+init();

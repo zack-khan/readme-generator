@@ -1,2 +1,13 @@
-# readme-generator
-Generates a README file given some command line inputs
+# My Project
+## Description
+A cool project by me
+## Installation
+Install it!
+## How to Use
+Use it!
+# How to Contribute
+Add stuff to it!
+## How to Test
+Test it!
+### License
+MIT
