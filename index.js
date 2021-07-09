@@ -37,6 +37,9 @@ ${response.use}
 ${response.contribute}
 ## How to Test
 ${response.test}
+## Questions
+My Github profile: https://github.com/${response.username}
+My Email Address: ${response.email}
 ### License
 ${license}`, (err) =>
         err ? console.error(err) : console.log('Page updated!')
