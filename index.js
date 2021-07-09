@@ -8,6 +8,17 @@ const questions = ['Enter your Github username: ', 'Enter your email address: ',
 // TODO: Create a function to write README file
 const filename = "README.md"
 function writeToFile(filename, response) {
+    switch (response.license) {
+        case 'MIT':
+            license = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+            break;
+        case 'Apache':
+            license = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+            break;
+        case 'Creative Commons':
+            license = '[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)';
+            break;
+    }
     fs.writeFile(filename,
 `# ${response.title}
 ## Table of Contents
@@ -27,7 +38,7 @@ ${response.contribute}
 ## How to Test
 ${response.test}
 ### License
-${response.license}`, (err) =>
+${license}`, (err) =>
         err ? console.error(err) : console.log('Page updated!')
     )
 }
@@ -80,6 +91,7 @@ function init() {
             type: 'select',
             message: questions[8],
             name: 'license',
+            choices: ['MIT', 'Apache', 'Creative Commons'],
         },
 
     ])
